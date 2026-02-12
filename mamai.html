@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 25th Birthday ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .fade-up {
+        animation: fadeUp 1.5s ease forwards;
+      }
+      .scale-in {
+        animation: scaleIn 0.5s ease forwards;
+      }
+
+      .heart {
+        position: fixed;
+        top: -10px;
+        font-size: 18px;
+        opacity: 0.8;
+        animation: fall linear infinite;
+        pointer-events: none;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(110vh);
+        }
+      }
+
+      @keyframes flame {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(1.3);
+        }
+      }
+      .flame {
+        animation: flame 0.8s infinite;
+      }
+
+      @keyframes smoke {
+        from {
+          opacity: 0.6;
+          transform: translateY(0) scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-20px) scale(1.5);
+        }
+      }
+      .smoke {
+        position: absolute;
+        top: -20px;
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: smoke 1.5s ease forwards;
+      }
+
+      #softOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1.5s ease;
+        z-index: 5;
+      }
+
+      #softOverlay.active {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-b from-rose-700 via-pink-600 to-purple-700 flex items-center justify-center text-white">
+    <div id="softOverlay"></div>
+
+    <script>
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 8000);
+      }
+
+      setInterval(createHeart, 300);
+    </script>
+
+    <div class="text-center px-6 fade-up relative z-10">
+      <div
+        id="candles"
+        onclick="blowCandles()"
+        class="flex justify-center mb-6 cursor-pointer select-none"
+        title="Tiup lilinnya 🎂">
+        <div class="flex gap-3 relative">
+          <div class="candle w-2 h-10 bg-yellow-100 rounded-sm relative">
+            <div
+              class="flame w-2 h-3 bg-orange-400 rounded-full absolute -top-3"></div>
+          </div>
+          <div class="candle w-2 h-12 bg-yellow-100 rounded-sm relative">
+            <div
+              class="flame w-2 h-3 bg-orange-400 rounded-full absolute -top-3"></div>
+          </div>
+          <div class="candle w-2 h-10 bg-yellow-100 rounded-sm relative">
+            <div
+              class="flame w-2 h-3 bg-orange-400 rounded-full absolute -top-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs opacity-80 mb-2">(tap lilinnya & buat harapan 🤍)</p>
+
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">
+        🎉 Happy 25th Birthday 🎂
+      </h1>
+
+      <p class="text-base sm:text-lg mb-6 leading-relaxed max-w-sm mx-auto">
+        Hari ini hari spesial kamu 🤍 Aku punya sesuatu yang pengen kamu baca
+        pelan-pelan.
+      </p>
+
+      <button
+        onclick="openLetter()"
+        class="bg-white text-pink-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition">
+        💌 Buka Surat
+      </button>
+    </div>
+
+    <div
+      id="letter"
+      class="fixed inset-0 bg-black/60 hidden items-center justify-center px-5 z-20">
+      <div
+        class="max-w-md w-full bg-white/10 backdrop-blur-md rounded-2xl p-6 scale-in">
+        <div class="mb-4">
+          <img
+            src="foto-kita.jpg"
+            class="w-full h-48 object-cover rounded-xl shadow-lg border border-white/30" />
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4 text-center">
+          For The Clumsy Mamai 🤍
+        </h2>
+
+        <p class="text-sm leading-relaxed mb-4">
+          Selamat ulang tahun yang ke <b>25</b> yaa sayang. Semoga kamu selalu
+          sehat, hatinya tenang, dan hidupnya dipeluk hal-hal baik.
+        </p>
+
+        <p class="text-sm leading-relaxed mb-4">
+          Makasih yaa… makasih udah hadir di hidup aku, dan pelan-pelan ngasih
+          warna yang sebelumnya aku sendiri ga sadar kalau itu kurang.
+        </p>
+
+        <p class="text-sm leading-relaxed mb-4">
+          Sejak ada kamu, hidup aku mulai keliatan lebih terang. Aku mulai
+          ngerti kenapa aku harus bangun setiap hari, apa yang pengen aku kejar,
+          dan apa yang pengen aku jaga.
+        </p>
+
+        <p class="text-sm leading-relaxed mb-4">
+          Aku pengen kita hidup lama. Ngelewatin banyak hal bareng. Capek
+          bareng, ketawa bareng, dan pulang ke satu perasaan yang sama.
+        </p>
+
+        <p class="text-base font-semibold text-center mt-6">
+          Sehat-sehat yaaa 🤍 Selamat 25 tahunnn 🎉💕
+        </p>
+
+        <button
+          onclick="closeLetter()"
+          class="mt-6 w-full bg-white text-pink-600 font-semibold py-2 rounded-full">
+          ❌ Tutup Surat
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let blown = false;
+
+      function blowCandles() {
+        if (blown) return;
+        blown = true;
+
+        document.querySelectorAll(".flame").forEach((flame) => {
+          flame.style.display = "none";
+
+          const smoke = document.createElement("div");
+          smoke.className = "smoke";
+          flame.parentElement.appendChild(smoke);
+
+          setTimeout(() => smoke.remove(), 1500);
+        });
+
+        document.getElementById("softOverlay").classList.add("active");
+      }
+
+      function openLetter() {
+        document.getElementById("letter").classList.remove("hidden");
+        document.getElementById("letter").classList.add("flex");
+      }
+
+      function closeLetter() {
+        document.getElementById("letter").classList.add("hidden");
+        document.getElementById("letter").classList.remove("flex");
+      }
+    </script>
+  </body>
+</html>
